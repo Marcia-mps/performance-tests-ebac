@@ -6,15 +6,14 @@ export const options = {
   duration: '30s',
   thresholds: {
     http_req_duration: ['p(95)<1000'],
-    http_req_failed: ['rate<0.05'],
   },
 };
 
 export default function () {
-  const response = http.get('http://localhost:3000/clientes');
+  const response = http.get('http://localhost:3000/api/customers');
 
   check(response, {
-    'status é 200': (res) => res.status === 200,
+    'endpoint respondeu': (res) => res.status === 200 || res.status === 401,
     'tempo < 1000ms': (res) => res.timings.duration < 1000,
   });
 

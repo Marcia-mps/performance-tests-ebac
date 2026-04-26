@@ -32,3 +32,12 @@ git clone https://github.com/EBAC-QE/ebac-demo-store-server
 cd ebac-demo-store-server
 npm install
 npm start
+
+## Evidências
+
+Testes de performance executados com sucesso utilizando K6.
+
+Resultados:
+- Endpoints protegidos (retorno 401 esperado)
+- Tempo de resposta dentro do limite (< 1000ms)
+- Execução com 10 usuários simultâneos por 30 segundos
